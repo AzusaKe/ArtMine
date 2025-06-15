@@ -4,7 +4,7 @@
 #include <iostream>
 #include "index.h"
 #include "renderer_windows.h"
-#include "dirt.h"
+#include "blocks.h"
 
 void initialize_blocks() {
     // 这个函数的作用是触发静态变量的初始化
