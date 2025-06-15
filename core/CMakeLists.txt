@@ -15,7 +15,6 @@ target_include_directories(core PUBLIC
 target_link_libraries(core PUBLIC
         log
         file_operator
-        JIT_loader
         element
         signal
 )
