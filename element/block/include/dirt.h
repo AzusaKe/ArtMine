@@ -13,5 +13,6 @@ public:
     void on_block_placed() override;
     static const int ID = 1;
 };
+REGISTER_BLOCK(dirt, dirt::ID)
 
 #endif // DIRT_H

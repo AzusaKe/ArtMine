@@ -6,6 +6,7 @@
 #define BLOCK_H
 
 #include <string>
+#include <unordered_map>
 
 enum class Block_Type { AIR = 0, SOLID = 1, LIQUID = 2 };
 enum class Block_Direction { UP = 0, DOWN = 1, NORTH = 2, SOUTH = 3, EAST = 4, WEST = 5 };
@@ -36,5 +37,20 @@ public:
     virtual void on_block_placed() = 0;
     static const int ID;
 };
+
+std::unordered_map<int,block*>& block_registry();
+
+block* get_block_by_id(int id);
+
+class block_registrar {
+public:
+    block_registrar(int id, block* b) {
+        block_registry()[id] = b;
+    }
+};
+
+#define REGISTER_BLOCK(classname,id) \
+    static classname classname##_instance; \
+    static block_registrar registrar_##classname(id, &classname##_instance);
 
 #endif // BLOCK_H
