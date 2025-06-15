@@ -14,7 +14,7 @@ set(RESOURCES_OUTPUT_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources)
 
 # 添加子模块
 add_subdirectory(core)
-add_subdirectory(renderer)
+add_subdirectory(interact)
 add_subdirectory(file_operator)
 add_subdirectory(JIT_loader)
 
@@ -22,7 +22,7 @@ add_subdirectory(JIT_loader)
 add_executable(ArtMine main.cpp)
 
 # 链接子模块
-target_link_libraries(ArtMine PRIVATE core renderer file_operator JIT_loader)
+target_link_libraries(ArtMine PRIVATE core interact file_operator JIT_loader)
 
 # 构建时复制 resources 文件夹
 add_custom_command(

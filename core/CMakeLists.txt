@@ -9,5 +9,6 @@ target_include_directories(core PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/block/include
         ${CMAKE_CURRENT_SOURCE_DIR}/client/include
         ${CMAKE_CURRENT_SOURCE_DIR}/entity/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/server/include
         ${CMAKE_CURRENT_SOURCE_DIR}/server/world/include
 )
