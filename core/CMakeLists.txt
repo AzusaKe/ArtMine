@@ -12,3 +12,10 @@ target_include_directories(core PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/server/include
         ${CMAKE_CURRENT_SOURCE_DIR}/server/world/include
 )
+
+target_link_libraries(core PUBLIC
+        log
+        file_operator
+        JIT_loader
+)
+

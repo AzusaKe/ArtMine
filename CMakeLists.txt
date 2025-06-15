@@ -22,7 +22,7 @@ add_subdirectory(JIT_loader)
 add_executable(ArtMine main.cpp)
 
 # 链接子模块
-target_link_libraries(ArtMine PRIVATE core interact file_operator JIT_loader)
+target_link_libraries(ArtMine PRIVATE core interact file_operator JIT_loader log)
 
 # 服务端
 add_executable(server core/server/run_server.cpp)

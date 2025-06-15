@@ -3,6 +3,7 @@
 //
 
 #include "run_server.h"
+#include "mod_loader.h"
 
 int main() {
     int a = 0;
