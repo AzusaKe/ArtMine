@@ -30,4 +30,13 @@ add_custom_command(
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${RESOURCES_DIR} ${RESOURCES_OUTPUT_DIR}
         COMMENT "Copy resources folder to output directory"
+        
+)
+
+# 创建 mods 文件夹
+add_custom_command(
+        TARGET ArtMine POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory
+        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/mods
+        COMMENT "Create mods folder in output directory"
 )
