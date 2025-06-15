@@ -24,6 +24,14 @@ add_executable(ArtMine main.cpp)
 # 链接子模块
 target_link_libraries(ArtMine PRIVATE core interact file_operator JIT_loader)
 
+# 服务端
+add_executable(server core/server/run_server.cpp)
+target_link_libraries(server PRIVATE
+        core
+        file_operator
+        JIT_loader
+)
+
 # 构建时复制 resources 文件夹
 add_custom_command(
         TARGET ArtMine POST_BUILD

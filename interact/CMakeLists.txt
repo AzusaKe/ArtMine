@@ -5,12 +5,12 @@ set(INTERACT_LINK_LIBRARIES "")
 if(WIN32)
     # Windows 平台下的源文件和头文件路径
     file(GLOB INTERACT_SOURCES
-        ${CMAKE_CURRENT_SOURCE_DIR}/windows/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/windows/renderer/*.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/windows/input/*.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/windows/extern/glad/src/*.c
     )
     set(INTERACT_INCLUDE
-        ${CMAKE_CURRENT_SOURCE_DIR}/windows/include
+            ${CMAKE_CURRENT_SOURCE_DIR}/windows/renderer/include
         ${CMAKE_CURRENT_SOURCE_DIR}/windows/input/include
         ${CMAKE_CURRENT_SOURCE_DIR}/windows/extern/glad/include
         ${CMAKE_CURRENT_SOURCE_DIR}/windows/extern/include
