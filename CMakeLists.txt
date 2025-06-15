@@ -16,8 +16,10 @@ include_directories(${PROJECT_SOURCE_DIR}/core/include
                     ${PROJECT_SOURCE_DIR}/core/JIT_loader/include
         if(WIN32)
         ${PROJECT_SOURCE_DIR}/renderer/windows/include
+        ${PROJECT_SOURCE_DIR}/file_operator/windows/include
         else()
         ${PROJECT_SOURCE_DIR}/renderer/linux/include
+        ${PROJECT_SOURCE_DIR}/file_operator/linux/include
         endif()
 )
 
@@ -30,8 +32,10 @@ file(GLOB SRC_LIST ${PROJECT_SOURCE_DIR}/core/*.cpp
                    ${PROJECT_SOURCE_DIR}/core/JIT_loader/*.cpp
         if(WIN32)
                    ${PROJECT_SOURCE_DIR}/renderer/windows/*.cpp
+                   ${PROJECT_SOURCE_DIR}/file_operator/windows/*.cpp
         else()
                    ${PROJECT_SOURCE_DIR}/renderer/linux/*.cpp
+                   ${PROJECT_SOURCE_DIR}/file_operator/linux/*.cpp
         endif()
 )
 
