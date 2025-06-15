@@ -10,9 +10,8 @@
 class dirt final : public block {
 public:
     dirt();
-    void on_block_placed() override ;
+    void on_block_placed() override;
     static const int ID = 1;
-    static dirt INSTANCE;
 };
 
-#endif //DIRT_H
+#endif // DIRT_H

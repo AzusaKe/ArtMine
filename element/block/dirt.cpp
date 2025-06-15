@@ -6,20 +6,6 @@
 
 #include <iostream>
 
-const int dirt::ID;
-
-dirt dirt::INSTANCE;
-
-namespace {
-    // 使用函数局部静态变量来确保正确的初始化顺序
-    bool register_dirt() {
-        BLOCK_REGISTRY[dirt::ID] = &dirt::INSTANCE;
-        return true;
-    }
-
-    bool registered = register_dirt();
-}
-
 dirt::dirt() {
     Block_Data.block_id = "minecraft:dirt";
     Block_Data.block_type = Block_Type::SOLID;
