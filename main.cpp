@@ -1,9 +1,4 @@
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
 #include <iostream>
-#include "index.h"
-#include "renderer_windows.h"
 #include "blocks.h"
 
 void initialize_blocks() {
