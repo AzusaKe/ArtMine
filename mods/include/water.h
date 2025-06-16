@@ -13,5 +13,6 @@ class __declspec(dllexport) water : public block {
     void on_block_placed() override;
     static const int ID = 3;
 };
+REGISTER_BLOCK(water, water::ID);
 
 #endif //WATER_H
