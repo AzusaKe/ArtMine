@@ -54,3 +54,7 @@ add_custom_command(
         ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/mods
         COMMENT "Create mods folder in output directory"
 )
+
+add_library(water SHARED element/block/water.cpp)
+target_compile_definitions(water PRIVATE BUILDING_DLL)
+target_link_libraries(water PRIVATE element)
