@@ -7,7 +7,7 @@
 
 #include "block.h"
 
-class __declspec(dllexport) water : public block {
+class water : public block {
     public:
     water();
     void on_block_placed() override;
