@@ -4,6 +4,8 @@
 
 #include "mod_loader.h"
 
+#include <iostream>
+
 void load_mods() {
     std::filesystem::path mods_dir = "mods"; // Directory containing mod shared libraries
     if (!std::filesystem::exists(mods_dir) || !std::filesystem::is_directory(mods_dir)) {
@@ -18,4 +20,12 @@ void load_mods() {
             }
         }
     }
+}
+
+void unload_mods() {
+    for (const auto& module : loaded_modules) {
+        dlclose(module);
+        std::cout << "Unloaded module: " << module << std::endl;
+    }
+    loaded_modules.clear();
 }

@@ -11,6 +11,8 @@
 
 void load_mods();
 
+void unload_mods();
+
 inline std::vector<void*> loaded_modules;
 
 #endif //MOD_LOADER_H

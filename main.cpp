@@ -1,6 +1,5 @@
 #include <iostream>
 #include "blocks.h"
-#include <windows.h>
 #include "mod_loader.h"
 
 int main(){
@@ -27,9 +26,6 @@ int main(){
     } else {
         std::cout << "Block with ID 4 not found." << std::endl;
     }
-    for (const auto& module : loaded_modules) {
-        FreeLibrary(module);
-        std::cout << "Unloaded module: " << module << std::endl;
-    }
+    unload_mods();
     return 0;
 }
