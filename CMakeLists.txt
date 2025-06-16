@@ -13,6 +13,7 @@ set(RESOURCES_DIR ${PROJECT_SOURCE_DIR}/resources)
 set(RESOURCES_OUTPUT_DIR ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/resources)
 
 # 添加子模块
+add_subdirectory(block_core)
 add_subdirectory(signal)
 add_subdirectory(log)
 add_subdirectory(element)
@@ -26,7 +27,7 @@ add_subdirectory(mods)
 add_executable(ArtMine main.cpp)
 
 # 链接子模块
-target_link_libraries(ArtMine PRIVATE core interact file_operator JIT_loader log element signal)
+target_link_libraries(ArtMine PRIVATE core interact file_operator JIT_loader log element signal block_core)
 
 # 服务端
 add_executable(server core/server/run_server.cpp)
@@ -37,6 +38,7 @@ target_link_libraries(server PRIVATE
         log
         element
         signal
+        block_core
 )
 
 # 构建时复制 resources 文件夹
@@ -66,4 +68,5 @@ target_link_libraries(water PRIVATE
         log
         element
         signal
+        block_core
 )

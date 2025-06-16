@@ -5,7 +5,7 @@
 #ifndef WATER_H
 #define WATER_H
 
-#include "block.h"
+#include "../../block_core/include/block.h"
 
 class __declspec(dllexport) water : public block {
     public:

@@ -44,9 +44,7 @@ block* get_block_by_id(int id);
 
 class block_registrar {
 public:
-    block_registrar(int id, block* b) {
-        block_registry()[id] = b;
-    }
+    block_registrar(int id, block* b) ;
 };
 
 #define REGISTER_BLOCK(classname,id) \

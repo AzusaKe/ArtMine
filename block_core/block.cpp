@@ -13,3 +13,7 @@ block* get_block_by_id(int id) {
     auto it = block_registry().find(id);
     return it != block_registry().end() ? it->second : nullptr;
 }
+
+block_registrar::block_registrar(int id, block *b) {
+    block_registry()[id] = b;
+}

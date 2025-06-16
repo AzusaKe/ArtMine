@@ -16,4 +16,5 @@ target_link_libraries(mods PUBLIC
         log
         element
         signal
+        block_core
 )

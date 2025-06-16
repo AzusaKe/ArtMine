@@ -11,3 +11,7 @@ target_include_directories(element PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/entity/include
         ${CMAKE_CURRENT_SOURCE_DIR}/item/include
 )
+
+target_link_libraries(element PUBLIC
+        block_core
+)
