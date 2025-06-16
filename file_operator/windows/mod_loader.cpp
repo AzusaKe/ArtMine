@@ -7,7 +7,9 @@
 #include <iostream>
 
 void load_mods() {
-    std::filesystem::path exe_path = std::filesystem::current_path();
+    char exe_path_buffer[MAX_PATH];
+    GetModuleFileNameA(nullptr, exe_path_buffer, MAX_PATH);
+    std::filesystem::path exe_path = std::filesystem::canonical(std::filesystem::path(exe_path_buffer)).parent_path();
     std::filesystem::path mods_dir = exe_path / "mods"; // Directory containing mod DLLs
     if (!std::filesystem::exists(mods_dir) || !std::filesystem::is_directory(mods_dir)) {
         std::cerr << "Mods directory not found: " << mods_dir << std::endl;
