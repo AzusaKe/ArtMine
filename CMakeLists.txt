@@ -20,6 +20,7 @@ add_subdirectory(core)
 add_subdirectory(interact)
 add_subdirectory(file_operator)
 add_subdirectory(JIT_loader)
+add_subdirectory(mods)
 
 # 主程序
 add_executable(ArtMine main.cpp)
@@ -53,4 +54,16 @@ add_custom_command(
         COMMAND ${CMAKE_COMMAND} -E make_directory
         ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/mods
         COMMENT "Create mods folder in output directory"
+)
+
+add_library(water SHARED mods/water.cpp)
+target_compile_definitions(water PRIVATE BUILDING_DLL)
+target_link_libraries(water PRIVATE
+        core
+        interact
+        file_operator
+        JIT_loader
+        log
+        element
+        signal
 )

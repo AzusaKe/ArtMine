@@ -24,5 +24,5 @@ static water water_block;
 
 extern "C" __declspec(dllexport) void init_water_mod() {
     // 初始化水模块
-    register_block(water_block.ID, &water_block);
+
 }
