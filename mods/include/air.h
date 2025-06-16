@@ -7,7 +7,7 @@
 
 #include "block.h"
 
-class __declspec(dllexport) air : public block {
+class air : public block {
     public:
     air();
     void on_block_placed() override;

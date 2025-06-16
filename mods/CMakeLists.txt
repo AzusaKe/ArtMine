@@ -20,7 +20,11 @@ target_link_libraries(mods PUBLIC
 )
 
 add_library(water SHARED water.cpp)
-target_compile_definitions(water PRIVATE BUILDING_DLL)
+if(WIN32)
+    target_compile_definitions(water PRIVATE BUILDING_DLL)
+else ()
+    set_target_properties(water PROPERTIES PREFIX "" SUFFIX ".so")
+endif ()
 target_link_libraries(water PRIVATE
         core
         interact
@@ -35,13 +39,17 @@ target_link_libraries(water PRIVATE
 # 构建时移动 water.dll 到 mods 文件夹
 add_custom_command(
         TARGET water POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:water> ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/mods/water.dll
+        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:water> ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/mods/${CMAKE_SHARED_LIBRARY_PREFIX}water${CMAKE_SHARED_LIBRARY_SUFFIX}
         COMMAND ${CMAKE_COMMAND} -E remove $<TARGET_FILE:water>
-        COMMENT "Copy water.dll to mods folder and remove the original"
+        COMMENT "Copy water library to mods folder and remove the original"
 )
 
 add_library(air SHARED air.cpp)
-target_compile_definitions(air PRIVATE BUILDING_DLL)
+if(WIN32)
+    target_compile_definitions(air PRIVATE BUILDING_DLL)
+else ()
+    set_target_properties(air PROPERTIES PREFIX "" SUFFIX ".so")
+endif ()
 target_link_libraries(air PRIVATE
         core
         interact
@@ -56,7 +64,7 @@ target_link_libraries(air PRIVATE
 # 构建时移动 air.dll 到 mods 文件夹
 add_custom_command(
         TARGET air POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:air> ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/mods/air.dll
+        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:air> ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/mods/${CMAKE_SHARED_LIBRARY_PREFIX}air${CMAKE_SHARED_LIBRARY_SUFFIX}
         COMMAND ${CMAKE_COMMAND} -E remove $<TARGET_FILE:air>
-        COMMENT "Copy air.dll to mods folder and remove the original"
+        COMMENT "Copy air library to mods folder and remove the original"
 )
