@@ -7,6 +7,7 @@
 #include <iostream>
 
 void load_mods() {
+    // 加载模组时从运行的可执行文件本体存在的目录寻找mods文件夹，在里面加载目录
     std::filesystem::path exe_path = std::filesystem::canonical("/proc/self/exe").parent_path();
     std::filesystem::path mods_dir = exe_path / "mods"; // Directory containing mod shared libraries
     if (!std::filesystem::exists(mods_dir) || !std::filesystem::is_directory(mods_dir)) {
