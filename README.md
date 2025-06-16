@@ -1,2 +1,12 @@
-# minecraft-like-project
-a personal project aimed at improving program skill
+# ArtMine
+一个以Minecraft为灵感的项目，旨在提高个人编程能力
+
+---
+项目所有可使用的[API](docs/api.md)
+
+---
+## 简介
+一个沙盒项目，玩家可以在其中建造、探索和创造。项目的灵感来源于Minecraft，旨在提供一个类似的体验，同时也作为一个学习编程的工具。
+未来将能够由玩家自定义光影和模组，只需采用固定格式的脚本文件（预计为json），也可以重写项目代码并由指定编译器打包出动态库
+
+> 遵循[MIT License](LICENSE)
