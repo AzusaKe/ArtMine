@@ -8,17 +8,6 @@
 #include <string>
 #include <unordered_map>
 
-#ifdef _WIN32
-    #ifdef BUILDING_DLL
-        #define DLL_API __declspec(dllexport)
-    #else
-        #define DLL_API __declspec(dllimport)
-    #endif
-#else
-    #define DLL_API
-#endif
-
-
 enum class Block_Type { AIR = 0, SOLID = 1, LIQUID = 2 };
 enum class Block_Direction { UP = 0, DOWN = 1, NORTH = 2, SOUTH = 3, EAST = 4, WEST = 5 };
 enum class R_Level {
@@ -38,20 +27,15 @@ struct block_data {
 
 class block {
 public:
-    block() = default;
     virtual ~block() = default;
 
-    static const int ID;
-
+    block_data Block_Data;
+    block() = default;
     [[nodiscard]] const block_data& get_block_data() const {
         return Block_Data;
     }
-
     virtual void on_block_placed() = 0;
-    virtual void custom_function() {}
-
-protected:
-    block_data Block_Data;
+    static const int ID;
 };
 
 std::unordered_map<int,block*>& block_registry();
