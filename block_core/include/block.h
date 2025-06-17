@@ -8,6 +8,16 @@
 #include <string>
 #include <unordered_map>
 
+#ifdef _WIN32
+  #ifdef BLOCK_CORE_EXPORTS
+    #define BLOCK_CORE_API __declspec(dllexport)
+  #else
+    #define BLOCK_CORE_API __declspec(dllimport)
+  #endif
+#else
+  #define BLOCK_CORE_API
+#endif
+
 enum class Block_Type { AIR = 0, SOLID = 1, LIQUID = 2 };
 enum class Block_Direction { UP = 0, DOWN = 1, NORTH = 2, SOUTH = 3, EAST = 4, WEST = 5 };
 enum class R_Level {
@@ -25,7 +35,7 @@ struct block_data {
     R_Level block_r_level;
 };
 
-class block {
+class BLOCK_CORE_API block {
 public:
     virtual ~block() = default;
 
@@ -40,9 +50,9 @@ public:
 
 std::unordered_map<int,block*>& block_registry();
 
-block* get_block_by_id(int id);
+block* BLOCK_CORE_API get_block_by_id(int id);
 
-class block_registrar {
+class BLOCK_CORE_API block_registrar {
 public:
     block_registrar(int id, block* b) ;
 };
