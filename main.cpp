@@ -26,6 +26,12 @@ int main(){
     } else {
         std::cout << "Block with ID 4 not found." << std::endl;
     }
+    b = get_block_by_id("minecraft:water");
+    if (b) {
+        std::cout << "Block with ID 'minecraft:water' 's hardness is: " << b->get_block_data().block_hardness << std::endl;
+    } else {
+        std::cout << "Block with ID 'minecraft:water' not found." << std::endl;
+    }
     unload_mods();
     return 0;
 }

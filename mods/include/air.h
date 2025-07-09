@@ -13,7 +13,7 @@ class air : public block {
     void on_block_placed() override;
     static const int ID = 4;
 };
-REGISTER_BLOCK(air, air::ID);
+REGISTER_BLOCK(air,air::Block_Data.block_id, air::ID);
 
 
 

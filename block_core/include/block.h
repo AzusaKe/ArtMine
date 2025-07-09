@@ -56,7 +56,7 @@ class BLOCK_CORE_API block {
 public:
     virtual ~block() = default;
 
-    block_data Block_Data;
+    static block_data Block_Data;
     block() = default;
     [[nodiscard]] const block_data& get_block_data() const {
         return Block_Data;
@@ -67,19 +67,24 @@ public:
 
 // 方块注册表
 std::unordered_map<int,block*>& block_registry();
+std::unordered_map<std::string, block*>& block_registry_id();
 
 // 用于方块注册的函数-get_block_by_id-参数：整型：ID-返回：方块指针
 block* BLOCK_CORE_API get_block_by_id(int id);
+block* BLOCK_CORE_API get_block_by_id(std::string block_id);
 
 // 方块注册器
 class BLOCK_CORE_API block_registrar {
 public:
+    block_registrar() = default;
     block_registrar(int id, block* b) ;
+    block_registrar(std::string, block* b);
 };
 
 // 方块注册宏-REGISTER_BLOCK-参数：类名 ID-无返回值
-#define REGISTER_BLOCK(classname,id) \
+#define REGISTER_BLOCK(classname,block_id,id) \
     static classname classname##_instance; \
-    static block_registrar registrar_##classname(id, &classname##_instance);
+    static block_registrar registrar_##classname(id, &classname##_instance); \
+    static block_registrar registrar_id##classname(block_id, &classname##_instance);
 
 #endif // BLOCK_H

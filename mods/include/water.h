@@ -13,6 +13,6 @@ class water : public block {
     void on_block_placed() override;
     static const int ID = 3;
 };
-REGISTER_BLOCK(water, water::ID);
+REGISTER_BLOCK(water,water::Block_Data.block_id, water::ID);
 
 #endif //WATER_H

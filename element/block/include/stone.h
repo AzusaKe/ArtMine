@@ -13,6 +13,6 @@ public:
     void on_block_placed() override;
     static const int ID = 2;
 };
-REGISTER_BLOCK(stone, stone::ID)
+REGISTER_BLOCK(stone,stone::Block_Data.block_id, stone::ID)
 
 #endif //STONE_H
