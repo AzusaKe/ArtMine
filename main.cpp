@@ -6,7 +6,7 @@ int main(){
     load_mods();
     block* b = get_block_by_id(1);
     if (b) {
-        std::cout << "ID 1 is: " << b->get_block_id() << std::endl;
+        std::cout << "ID 1 is: " << b->get_block_id() << "Hardness is: " << b->get_block_data().block_hardness << std::endl;
     }
     b = get_block_by_id(2);
     if (b) {
