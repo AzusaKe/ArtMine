@@ -6,8 +6,9 @@
 
 #include <iostream>
 
+const std::string water::block_id = "minecraft:water";
+
 water::water() {
-    Block_Data.block_id = "minecraft:water";
     Block_Data.block_type = Block_Type::LIQUID;
     Block_Data.block_hardness = -1;
     Block_Data.block_light_level = 0;

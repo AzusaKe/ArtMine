@@ -6,8 +6,9 @@
 
 #include <iostream>
 
+const std::string air::block_id = "minecraft:air";
+
 air::air() {
-    Block_Data.block_id = "minecraft:air";
     Block_Data.block_type = Block_Type::AIR;
     Block_Data.block_hardness = -1;
     Block_Data.block_light_level = 0;

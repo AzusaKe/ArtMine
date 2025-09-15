@@ -4,7 +4,7 @@
 
 #include "block.h"
 
-block_data block::Block_Data;
+const std::string block::block_id;
 
 // 注册表函数
 std::unordered_map<int,block*>& block_registry() {

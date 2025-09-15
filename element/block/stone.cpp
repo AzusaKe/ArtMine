@@ -6,8 +6,9 @@
 
 #include <iostream>
 
+const std::string stone::block_id = "minecraft:stone";
+
 stone::stone() {
-    Block_Data.block_id = "minecraft:stone";
     Block_Data.block_type = Block_Type::SOLID;
     Block_Data.block_hardness = 10;
     Block_Data.block_light_level = 0;

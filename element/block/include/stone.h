@@ -12,7 +12,9 @@ public:
     stone();
     void on_block_placed() override;
     static const int ID = 2;
+    static const std::string block_id;
+    std::string get_block_id() { return block_id; }
 };
-REGISTER_BLOCK(stone,stone::Block_Data.block_id, stone::ID)
+REGISTER_BLOCK(stone,stone::block_id, stone::ID)
 
 #endif //STONE_H

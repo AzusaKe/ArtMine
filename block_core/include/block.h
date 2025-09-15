@@ -39,7 +39,6 @@ enum class R_Level {
 //      方块默认朝向
 //      方块红石能量等级
 struct block_data {
-    std::string block_id;
     Block_Type block_type;
     int block_hardness;
     int block_light_level;
@@ -56,13 +55,20 @@ class BLOCK_CORE_API block {
 public:
     virtual ~block() = default;
 
-    static block_data Block_Data;
+    block_data Block_Data;
+    static const int ID;
+    static const std::string block_id;
     block() = default;
     [[nodiscard]] const block_data& get_block_data() const {
         return Block_Data;
     }
+
+    virtual std::string get_block_id()
+    {
+        return block_id;
+    }
     virtual void on_block_placed() = 0;
-    static const int ID;
+
 };
 
 // 方块注册表

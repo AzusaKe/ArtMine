@@ -6,8 +6,9 @@
 
 #include <iostream>
 
+const std::string dirt::block_id = "minecraft:dirt";
+
 dirt::dirt() {
-    Block_Data.block_id = "minecraft:dirt";
     Block_Data.block_type = Block_Type::SOLID;
     Block_Data.block_hardness = 3;
     Block_Data.block_light_level = 0;
