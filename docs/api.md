@@ -9,6 +9,21 @@
 const block* query_block = get_block_by_id(1);
 ```
 ---
+### `const block* get_block_by_id(const std::string& block_id)`
+返回一个指针指向对应`block_id`的对象`block*`
+用法：
+```c++
+const block* query_block = get_block_by_id("minecraft:dirt");
+```
+
+---
+### `int get_block_id() const`
+返回当前方块的`ID`用法：
+```c++
+std::string block_id = query_block->get_block_id();
+```
+
+---
 ### `const block_data& get_block_data() const`
 返回一个`block_data`的引用，包含了当前方块的数据
 
